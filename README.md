@@ -40,9 +40,14 @@ dependencies {
     <item name="windowNoTitle">true</item>
   </style>
 
-  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+  <style 
+    name="AppTheme.AppBarOverlay"
+    parent="ThemeOverlay.AppCompat.Dark.ActionBar"
+  />
 
   <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
 ```
+
+5) 
 	
