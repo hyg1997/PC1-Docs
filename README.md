@@ -1,8 +1,16 @@
-1) **(add-line)** ***Route:** /manifests/AndroidManifest.xml/* ---  **INTERNET PERMISSIONS**
+# Initial Configuration
+
+1) **(add-line)** ***Route:** /manifests/AndroidManifest.xml/* ---  **ADD INTERNET PERMISSIONS**
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
+<application
+  android.name=".CatchUpApp"
+  ...
+>
+...
+</application>
 ```
-2) **(add-line)** ***Route:** Gradle Scripts/build.gradle(Module: app)* ---  **NETWORKING LIBRARY**
+2) **(add-line)** ***Route:** Gradle Scripts/build.gradle(Module: app)* ---  **ADD NETWORKING LIBRARY**
 ```kotlin
 dependencies {
   ...
@@ -10,7 +18,7 @@ dependencies {
   ...
 }
 ```
-3) **(add-block)** ***Route:** /res/values/colors.xml* ---  **COLOR PALLETE**
+3) **(edit-content)** ***Route:** /res/values/colors.xml* ---  **SET COLOR PALLETE**
 ```xml
 <resources>
   <color name="colorPrimary">#FF9800</color>
@@ -23,7 +31,7 @@ dependencies {
   <color name="colorDivider">#BDBDBD</color>
 </resources>
 ```
-4) **(add-block)** ***Route:** /res/values/styles.xml* ---  **SET APP STYLES**	
+4) **(edit-content)** ***Route:** /res/values/styles.xml* ---  **SET APP STYLES**	
 ```xml
 <resources>
   <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -48,6 +56,44 @@ dependencies {
   <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
 ```
+5) **(edit-content)** ***Route:** /res/values/strings.xml* ---  **SET APP STRINGS**	
+```xml
+<resources>
+  <string name="app_name">CatchUp</string>
+  <string name="action_settings">Settings</string>
+  <string name="onboarding_welcome_text">Welcome to CatchUp!</string>
+  <string name="onboarding_start_button_title">Start</string>
+  <string name="title_activity_main">CatchUp</string>
+  <string name="title_home">Home</string>
+  <string name="title_sources">Sources</string>
+  <string name="title_favorites">Favorites</string>
+  <string name="title_settings">Settings</string>
 
-5) 
-	
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="mock_text">Mock Text</string>
+  <string name="title_activity_article">About Article</string>
+  <string name="title_activity_source">About Source</string>
+</resources>
+```
+6) **(edit-content)** ***Route:** /res/values/dimens.xml* ---  **SET APP DIMENSIONS**
+```xml
+<resources>
+  <dimen name="fab_margin">16dp</dimen>
+  <dimen name="default_margin">16dp</dimen>
+  <!-- Default screen margins, per the Android Design guidelines. -->
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
+  <dimen name="default_image_size">120dp</dimen>
+  <dimen name="image_big_side">180dp</dimen>
+</resources>
+```
+7) **(create-file)** ***Route:** /java/pe.edu.upc.catchup/**CatchUpApp.kt*** ---  **INITIALIZE ANDROID NETWORKING**	
+```kotlin
+class CatchUpApp : Application() {
+  override fun onCreate() {
+    super.onCreate()
+    AndroidNetworking.initialize(getApplicationContext())
+  }
+}
+```
